@@ -1,6 +1,7 @@
 <script setup>
 import headerView from './views/headerView.vue'
 import sectionOne from './views/sectionOne.vue'
+import marqueeView from './views/marqueeView.vue'
 </script>
 
 <template>
@@ -13,6 +14,7 @@ import sectionOne from './views/sectionOne.vue'
       <!-- section1 台灣的明天 -->
       <sectionOne />
       <!-- marquee -->
+      <marqueeView />
       <!-- scetion2 候選人主張 -->
       <!-- 最新活動 -->
       <!-- 政策議題 -->

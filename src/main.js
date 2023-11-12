@@ -1,5 +1,7 @@
+import 'swiper/css'
 import '@/style/cssReset.css'
 import '@/style/style.scss'
+
 import { createApp } from 'vue'
 import App from './App.vue'
 
