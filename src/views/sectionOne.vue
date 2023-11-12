@@ -52,6 +52,9 @@
       line-height: 105%;
       letter-spacing: 2px;
       background-image: $gradient;
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
       @media screen and (min-width: $xxl) {
         font-size: 96px;
       }

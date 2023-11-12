@@ -10,6 +10,7 @@
     "format": "prettier --write src/"
   },
   "dependencies": {
+    "swiper": "^11.0.4",
     "vue": "^3.3.4"
   },
   "devDependencies": {
