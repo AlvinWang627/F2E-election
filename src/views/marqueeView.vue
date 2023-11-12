@@ -54,7 +54,10 @@ const modules = [Autoplay]
     width: auto;
     margin-right: $spacer-24;
     color: $white;
-    @include big;
+    font-family: Mantou Sans;
+    font-size: 52px;
+    font-weight: 400;
+    line-height: normal;
     font-size: 40px;
     line-height: 62px;
     @media screen and (min-width: $xxl) {

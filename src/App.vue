@@ -2,6 +2,7 @@
 import headerView from './views/headerView.vue'
 import sectionOne from './views/sectionOne.vue'
 import marqueeView from './views/marqueeView.vue'
+import advocateView from './views/advocateView.vue'
 </script>
 
 <template>
@@ -16,6 +17,7 @@ import marqueeView from './views/marqueeView.vue'
       <!-- marquee -->
       <marqueeView />
       <!-- scetion2 候選人主張 -->
+      <advocateView />
       <!-- 最新活動 -->
       <!-- 政策議題 -->
       <!-- 捐款 -->

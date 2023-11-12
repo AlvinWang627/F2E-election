@@ -49,6 +49,7 @@ function test() {
 
 <style lang="scss" scoped>
 .header {
+  z-index: 100;
   background: rgba(255, 255, 255, 0.85);
   backdrop-filter: blur(12px);
   width: 100vw;
