@@ -7,6 +7,8 @@ $spacer-12: 12px;
 $spacer-16: 16px;
 $spacer-24: 24px;
 $spacer-32: 32px;
+$spacer-36: 36px;
+$spacer-40: 40px;
 $spacer-48: 48px;
 $spacer-64: 64px;
 $spacer-96: 96px;
@@ -46,4 +48,17 @@ $slate-900: #0f172a;
   font-size: 52px;
   font-weight: 400;
   line-height: normal;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+@mixin black-button() {
+  background-color: $slate-700;
+  color: $white;
+  padding: $spacer-8 $spacer-12;
+  border-radius: $spacer-8;
+  font-weight: 700;
+  font-size: 20px;
+  font-size: 16px;
 }
