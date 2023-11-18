@@ -1,3 +1,6 @@
 // @import './cssReset.css';
 @import './typography.scss';
 
+html {
+  scroll-behavior: smooth;
+}

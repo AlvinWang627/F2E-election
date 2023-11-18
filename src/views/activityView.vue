@@ -87,6 +87,24 @@ import { ref } from 'vue'
 import articleModal from '@/components/articleModal.vue'
 const isOpen = ref(false)
 const modalId = ref(null)
+
+import { onMounted, onUnmounted } from 'vue'
+import { gsap } from 'gsap'
+let tl
+onMounted(() => {
+  tl = gsap.timeline({
+    scrollTrigger: {
+      trigger: '.activity-container',
+      start: 'top 40%',
+    }
+  })
+  tl.to('.activity-label', { opacity: 1, duration: 0.5 })
+  tl.to('.activity-title', { opacity: 1, duration: 0.5 })
+  tl.to('.activity-list', { opacity: 1, duration: 0.5 })
+})
+onUnmounted(() => {
+  tl.revert() // <- Easy Cleanup!
+})
 </script>
 
 <style lang="scss" scoped>
@@ -108,9 +126,11 @@ const modalId = ref(null)
     }
   }
   &-label {
+    opacity: 0;
     @include black-button;
   }
   &-title {
+    opacity: 0;
     margin-bottom: 40px;
     @include big;
     background: $gradient;
@@ -122,6 +142,7 @@ const modalId = ref(null)
     }
   }
   &-list {
+    opacity: 0;
     display: flex;
     flex-direction: column;
     @media screen and (min-width: $xxl) {

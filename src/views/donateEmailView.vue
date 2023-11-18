@@ -38,10 +38,27 @@ import donateModal from '@/components/donateModal.vue'
 import emailModal from '@/components/emailModal.vue'
 const isDonateModalOpen = ref(false)
 const isEmailModalOpen = ref(false)
+import { onMounted, onUnmounted } from 'vue'
+import { gsap } from 'gsap'
+let tl
+onMounted(() => {
+  tl = gsap.timeline({
+    scrollTrigger: {
+      trigger: '.donate-email-container',
+      start: 'top 40%'
+    }
+  })
+  tl.to('.donate', { opacity: 1, duration: 0.5, x: 0 })
+  tl.to('.email', { opacity: 1, duration: 0.5, x: 0 }, '<')
+})
+onUnmounted(() => {
+  tl.revert() // <- Easy Cleanup!
+})
 </script>
 
 <style lang="scss" scoped>
 .donate-email-container {
+  overflow: hidden;
   padding: $spacer-64 $spacer-16;
   display: flex;
   flex-direction: column;
@@ -60,6 +77,8 @@ const isEmailModalOpen = ref(false)
 }
 .donate,
 .email {
+  opacity: 0;
+  transform: translateX(100px);
   width: 100%;
   max-width: 343px;
   height: 352px;

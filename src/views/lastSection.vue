@@ -13,16 +13,60 @@
   </div>
 </template>
 
-<script setup></script>
+<script setup>
+import { onMounted, onUnmounted } from 'vue'
+import { gsap } from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
+gsap.registerPlugin(ScrollTrigger)
+let anim
+let anim2
+onMounted(() => {
+  anim = gsap.to('.title-wrapper__taiwan,.title-wrapper__meow', {
+    fontSize: 64,
+    opacity: 1,
+    duration: 1,
+    paused: true
+  })
+  anim2 = gsap.to('.sub-title__group', {
+    scale: 1,
+    duration: 1,
+    paused: true
+  })
+  ScrollTrigger.create({
+    start: 'top 70%',
+    trigger: '.last-container',
+    onEnter: () => {
+      anim.play()
+      anim2.play()
+    }
+  })
+  ScrollTrigger.create({
+    start: 'top bottom',
+    trigger: '.last-container',
+    onLeaveBack: () => {
+      anim.pause(0)
+      anim2.pause(0)
+    }
+  })
+})
+onUnmounted(() => {
+  anim.revert()
+  anim2.revert()
+})
+</script>
 
 <style lang="scss" scoped>
 .last-container {
   padding: 104px 0;
+  overflow: hidden;
   .title-wrapper {
+    z-index: 2;
+    text-wrap: nowrap;
     display: flex;
     flex-direction: column;
     align-items: center;
     margin: 0 0 $spacer-24 0;
+    position: relative;
     @media screen and (min-width: $xxl) {
       margin: 0 0 $spacer-16 0;
       flex-direction: row;
@@ -43,8 +87,12 @@
       background-clip: text;
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
+      font-size: 150px;
+      overflow: hidden;
+      // position: relative;
       @media screen and (min-width: $xxl) {
-        font-size: 64px;
+        // font-size: 64px;
+        font-size: 150px;
       }
     }
   }
@@ -69,6 +117,7 @@
       }
     }
     &__group {
+      transform: scale(3);
       width: auto;
       display: flex;
       justify-content: space-between;

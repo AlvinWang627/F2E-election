@@ -20,7 +20,22 @@
   </div>
 </template>
 
-<script setup></script>
+<script setup>
+import { onMounted, onUnmounted } from 'vue'
+import { gsap } from 'gsap'
+let ctx
+onMounted(() => {
+  ctx = gsap.context(() => {
+    let tl = gsap.timeline()
+    tl.to('.title-wrapper', { opacity: 1, duration: 1, delay: 2 })
+    tl.to('.sub-title', { opacity: 1, duration: 1, delay: 1 })
+    tl.to('.election-picture', { opacity: 1, duration: 1 })
+  })
+})
+onUnmounted(() => {
+  ctx.revert() // <- Easy Cleanup!
+})
+</script>
 
 <style lang="scss" scoped>
 .section-one {
@@ -35,6 +50,8 @@
     flex-direction: column;
     align-items: center;
     margin: $spacer-32 0 $spacer-16 0;
+    opacity: 0;
+    transition: all 0.7s ease-in;
     @media screen and (min-width: $xxl) {
       margin-top: $spacer-96;
       flex-direction: row;
@@ -64,6 +81,7 @@
     display: flex;
     align-items: center;
     flex-direction: column;
+    opacity: 0;
     @media screen and (min-width: $md) {
       flex-direction: row;
       justify-content: center;
@@ -131,6 +149,7 @@
   .election-picture {
     margin-top: $spacer-16;
     width: 327px;
+    opacity: 0;
     @media screen and (min-width: $md) {
       margin-top: $spacer-24;
       width: 343px;
