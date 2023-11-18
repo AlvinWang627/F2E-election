@@ -62,7 +62,7 @@ onMounted(() => {
   tl = gsap.timeline({
     scrollTrigger: {
       trigger: '.policy-container',
-      start: 'top 40%',
+      start: 'top 40%'
     }
   })
   tl.to('.policy-label', { opacity: 1, duration: 0.5, x: 0 })
@@ -103,6 +103,7 @@ onUnmounted(() => {
   }
   @media screen and (min-width: $xxl) {
     margin-bottom: $spacer-64;
+    font-size: 64px;
   }
 }
 .policy-list {

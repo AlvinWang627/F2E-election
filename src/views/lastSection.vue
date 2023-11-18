@@ -59,6 +59,7 @@ onUnmounted(() => {
 .last-container {
   padding: 104px 0;
   overflow: hidden;
+  height: 404px;
   .title-wrapper {
     z-index: 2;
     text-wrap: nowrap;
