@@ -81,6 +81,7 @@
       }
     }
     &__group {
+      align-items: center;
       width: auto;
       display: flex;
       justify-content: space-between;
