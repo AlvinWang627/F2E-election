@@ -5,11 +5,11 @@
       <h5 class="logo-group__text">喵立翰 Miao Li-Han</h5>
     </div>
     <menu class="menu-desktop">
-      <div class="menu-desktop__text">候選人主張</div>
-      <div class="menu-desktop__text">最新活動</div>
-      <div class="menu-desktop__text">政策議題</div>
-      <div class="menu-desktop__text">小額捐款</div>
-      <div class="menu-desktop__text">民眾服務信箱</div>
+      <a href="#advocateView" class="menu-desktop__text">候選人主張</a>
+      <a href="#activityView" class="menu-desktop__text">最新活動</a>
+      <a href="#policyView" class="menu-desktop__text">政策議題</a>
+      <a href="#donateEmailView" class="menu-desktop__text">小額捐款</a>
+      <a href="#donateEmailView" class="menu-desktop__text">民眾服務信箱</a>
     </menu>
     <div class="social-media">
       <img class="social-media__icon" src="@/assets/icon/fb.svg" alt="facebook icon" />
@@ -18,34 +18,30 @@
     </div>
   </div>
   <menu class="menu mobile">
-    <div class="menu-group" @click="test">
+    <a class="menu-group" href="#advocateView">
       <img class="menu-group__img" src="@/assets/icon/user.svg" alt="user icon" />
       <div class="menu-group__text">候選人主張</div>
-    </div>
-    <div class="menu-group">
+    </a>
+    <a class="menu-group" href="#activityView">
       <img class="menu-group__img" src="@/assets/icon/activity.svg" alt="activity icon" />
       <div class="menu-group__text">最新活動</div>
-    </div>
-    <div class="menu-group">
+    </a>
+    <a class="menu-group" href="#policyView">
       <img class="menu-group__img" src="@/assets/icon/issue.svg" alt="issue icon" />
       <div class="menu-group__text">政策議題</div>
-    </div>
-    <div class="menu-group">
+    </a>
+    <a class="menu-group" href="#donateEmailView">
       <img class="menu-group__img" src="@/assets/icon/money.svg" alt="money icon" />
       <div class="menu-group__text">小額捐款</div>
-    </div>
-    <div class="menu-group">
+    </a>
+    <a class="menu-group" href="#donateEmailView">
       <img class="menu-group__img" src="@/assets/icon/mail.svg" alt="mail icon" />
       <div class="menu-group__text">服務信箱</div>
-    </div>
+    </a>
   </menu>
 </template>
 
-<script setup>
-function test() {
-  console.log('test')
-}
-</script>
+<script setup></script>
 
 <style lang="scss" scoped>
 .header {
@@ -102,6 +98,10 @@ function test() {
         color: $text-primary-700;
       }
     }
+    &__text {
+      text-decoration: none;
+      cursor: pointer;
+    }
   }
   .social-media {
     display: none;
@@ -131,11 +131,13 @@ function test() {
     display: none;
   }
   .menu-group {
+    text-decoration: none;
     height: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    cursor: pointer;
     &__text {
       color: $text-primary-700;
       font-size: 10px;

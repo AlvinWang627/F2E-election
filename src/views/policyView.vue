@@ -1,5 +1,5 @@
 <template>
-  <div class="policy-container">
+  <div class="policy-container" id="policyView">
     <div class="policy-label">POLICY ISSUES</div>
     <div class="policy-title">政策議題</div>
     <div class="policy-list">

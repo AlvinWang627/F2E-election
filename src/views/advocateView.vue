@@ -1,5 +1,5 @@
 <template>
-  <div class="advocate-container">
+  <div class="advocate-container" id="advocateView">
     <div class="advocate-wrapper">
       <section class="advocate">
         <div class="advocate-label">ADVOCATE</div>
