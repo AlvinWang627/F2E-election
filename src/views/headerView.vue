@@ -127,6 +127,7 @@
   position: fixed;
   bottom: 0;
   background-color: #fff;
+  z-index: 3;
   @media screen and (min-width: $xxl) {
     display: none;
   }

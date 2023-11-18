@@ -54,6 +54,24 @@ const policies = [
 ]
 const isOpen = ref(false)
 const modalId = ref(null)
+
+import { onMounted, onUnmounted } from 'vue'
+import { gsap } from 'gsap'
+let tl
+onMounted(() => {
+  tl = gsap.timeline({
+    scrollTrigger: {
+      trigger: '.policy-container',
+      start: 'top 40%',
+    }
+  })
+  tl.to('.policy-label', { opacity: 1, duration: 0.5, x: 0 })
+  tl.to('.policy-title', { opacity: 1, duration: 0.5, x: 0 }, '<')
+  tl.to('.policy-list', { opacity: 1, duration: 0.5 })
+})
+onUnmounted(() => {
+  tl.revert() // <- Easy Cleanup!
+})
 </script>
 
 <style lang="scss" scoped>
@@ -69,9 +87,13 @@ const modalId = ref(null)
   }
 }
 .policy-label {
+  transform: translateX(-50px);
+  opacity: 0;
   @include black-button;
 }
 .policy-title {
+  transform: translateX(-50px);
+  opacity: 0;
   @include big;
   background-clip: text;
   -webkit-background-clip: text;
@@ -84,6 +106,7 @@ const modalId = ref(null)
   }
 }
 .policy-list {
+  opacity: 0;
   display: grid;
   gap: $spacer-64;
 

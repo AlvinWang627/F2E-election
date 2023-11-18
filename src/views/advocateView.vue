@@ -27,13 +27,33 @@
   </div>
 </template>
 
-<script setup></script>
+<script setup>
+import { onMounted, onUnmounted } from 'vue'
+import { gsap } from 'gsap'
+
+let tween
+onMounted(() => {
+  tween = gsap.to('.advocate-wrapper', {
+    y: 0,
+    duration: 0.7,
+    scrollTrigger: {
+      trigger: '.advocate-container',
+      start: 'top 40%',
+      markers:true
+    }
+  })
+})
+onUnmounted(() => {
+  tween.revert()
+})
+</script>
 
 <style lang="scss" scoped>
 .advocate-container {
   background: $bg-2;
 }
 .advocate-wrapper {
+  transform: translateY(300px);
   display: flex;
   flex-direction: column;
   padding: $spacer-64 $spacer-16;
