@@ -38,8 +38,7 @@ onMounted(() => {
     duration: 0.7,
     scrollTrigger: {
       trigger: '.advocate-container',
-      start: 'top 40%',
-      markers:true
+      start: 'top 40%'
     }
   })
 })
