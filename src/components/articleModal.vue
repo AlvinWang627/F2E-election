@@ -11,6 +11,7 @@
           class="modal-header__close"
           @click="$emit('close')"
           alt="cancel icon"
+          title="close"
         />
       </div>
       <div class="modal-body">
@@ -154,13 +155,19 @@ img {
   &-header {
     display: flex;
     justify-content: space-between;
-    margin-bottom: $spacer-8;
+    margin-bottom: $spacer-16;
+    align-items: center;
+    @media screen and (min-width: $xxl) {
+      margin-bottom: $spacer-24;
+    }
     &__close {
       cursor: pointer;
       font-size: 40px;
       width: 24px;
+    }
+    &__category {
       @media screen and (min-width: $xxl) {
-        width: 32px;
+        font-size: 32px;
       }
     }
   }
@@ -175,7 +182,6 @@ img {
           flex: 0 0 507px;
         }
         &-right {
-
         }
       }
     }
