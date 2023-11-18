@@ -1,5 +1,5 @@
 <template>
-  <div class="activity-container">
+  <div class="activity-container" id="activityView">
     <div class="activity-label">LATEST EVENTS</div>
     <div class="activity-title">最新活動</div>
 
@@ -103,6 +103,7 @@ const modalId = ref(null)
       max-width: 696px;
     }
     @media screen and (min-width: $xxl) {
+      padding: 104px 0;
       max-width: 1320px;
     }
   }

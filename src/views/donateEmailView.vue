@@ -1,5 +1,5 @@
 <template>
-  <div class="donate-email-container">
+  <div class="donate-email-container" id="donateEmailView">
     <section class="donate">
       <div class="donate-title">小額支持喵喵</div>
       <div class="donate-subtitle">您的小筆捐款，是每隻毛孩未來的大大動力！</div>

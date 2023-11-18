@@ -12,7 +12,7 @@ import footerView from './views/footerView.vue'
 
 <template>
   <div class="container">
-    <el-scrollbar height="100%">
+    <el-scrollbar height="100%" :wrap-style="[{ scrollBehavior: 'smooth' }]">
       <!-- header -->
       <header class="header-wrapper">
         <headerView />
@@ -44,6 +44,7 @@ import footerView from './views/footerView.vue'
 .container {
   width: 100%;
   height: 100dvh;
+
   .header-wrapper {
     height: 56px;
     margin-bottom: $spacer-16;
