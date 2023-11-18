@@ -73,7 +73,7 @@
       display: flex;
       justify-content: space-between;
       padding: $spacer-12 $spacer-16;
-
+      align-items: center;
       @media screen and (min-width: $md) {
         height: 66px;
       }
