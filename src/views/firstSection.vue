@@ -27,7 +27,7 @@ let ctx
 onMounted(() => {
   ctx = gsap.context(() => {
     let tl = gsap.timeline()
-    tl.to('.title-wrapper', { opacity: 1, duration: 1, delay: 2 })
+    tl.to('.title-wrapper', { opacity: 1, duration: 0.5, delay: 2 })
     tl.to('.sub-title', { opacity: 1, duration: 1, delay: 1 })
     tl.to('.election-picture', { opacity: 1, duration: 1 })
   })
@@ -51,7 +51,7 @@ onUnmounted(() => {
     align-items: center;
     margin: $spacer-32 0 $spacer-16 0;
     opacity: 0;
-    transition: all 0.7s ease-in;
+    transition: all 0.5s ease-in;
     @media screen and (min-width: $xxl) {
       margin-top: $spacer-96;
       flex-direction: row;

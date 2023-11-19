@@ -35,7 +35,7 @@ let tween
 onMounted(() => {
   tween = gsap.to('.advocate-wrapper', {
     y: 0,
-    duration: 0.7,
+    duration: 0.5,
     scrollTrigger: {
       trigger: '.advocate-container',
       start: 'top 40%'

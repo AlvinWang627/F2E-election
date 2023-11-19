@@ -98,9 +98,6 @@ function updateRenderData(id) {
       }
     }
   }
-  // otherData.value = props.data.filter((item) => {
-  //   return item.id !== id
-  // })
   let scroll = refScroll.value
   scroll.scrollTo({ top: 0, behavior: 'smooth' })
 }
@@ -148,7 +145,6 @@ img {
     border-radius: 24px;
     @media screen and (min-width: $xxl) {
       max-width: 1400px;
-      height: 900px;
       padding: $spacer-24 $spacer-48 $spacer-48 $spacer-48;
     }
   }

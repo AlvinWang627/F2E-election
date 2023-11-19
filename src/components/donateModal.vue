@@ -42,7 +42,7 @@
               <div class="card-wrapper__body">
                 <div class="card-wrapper__price-title">
                   NT$
-                  <h4 class="card-wrapper__price">6000</h4>
+                  <h4 class="card-wrapper__price">6,000</h4>
                 </div>
                 <div class="card-wrapper__person">已有 2,000 人贊助</div>
               </div>
@@ -52,7 +52,7 @@
               <div class="card-wrapper__body">
                 <div class="card-wrapper__price-title">
                   NT$
-                  <h4 class="card-wrapper__price">60000</h4>
+                  <h4 class="card-wrapper__price">60,000</h4>
                 </div>
                 <div class="card-wrapper__person">已有 999 人贊助</div>
               </div>

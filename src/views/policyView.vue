@@ -7,7 +7,7 @@
         class="policy-wrapper"
         v-for="policy in policies"
         :key="policy"
-        @click="(modalId = policy.id), (isOpen = true)"
+        @click="(modalId = policy.id), openModal()"
       >
         <h4>{{ policy.title }}</h4>
         <img class="policy-img" :src="policy.img" :alt="policy.title" />
@@ -15,7 +15,7 @@
     </div>
   </div>
   <teleport to="body">
-    <articleModal v-if="isOpen" :data="policies" :id="modalId" @close="isOpen = false">
+    <articleModal v-if="isOpen" :data="policies" :id="modalId" @close="closeModal()">
       <template #category>政策議題</template>
       <template #more-title>更多政策議題</template>
     </articleModal>
@@ -54,7 +54,15 @@ const policies = [
 ]
 const isOpen = ref(false)
 const modalId = ref(null)
-
+const body = document.body
+function openModal() {
+  isOpen.value = true
+  body.style.overflow = 'hidden'
+}
+function closeModal() {
+  isOpen.value = false
+  body.style.overflow = 'auto'
+}
 import { onMounted, onUnmounted } from 'vue'
 import { gsap } from 'gsap'
 let tl

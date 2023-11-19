@@ -8,7 +8,7 @@
         v-for="(activity, index) in activities.slice(0, 1)"
         :key="activity.id"
         class="big-card"
-        @click="(modalId = activity.id), (isOpen = true)"
+        @click="(modalId = activity.id), openModal()"
       >
         <img class="card-img" :src="activity.img" :alt="activity.title" />
         <div class="card-date">{{ activity.date }}</div>
@@ -20,7 +20,7 @@
           v-for="(activity, index) in activities.slice(1, 4)"
           :key="activity.id"
           class="small-card"
-          @click="(modalId = activity.id), (isOpen = true)"
+          @click="(modalId = activity.id), openModal()"
         >
           <img class="card-img" :src="activity.img" :alt="activity.title" />
           <div class="card-info">
@@ -37,7 +37,7 @@
     </div>
   </div>
   <teleport to="body">
-    <articleModal v-if="isOpen" :data="activities" :id="modalId" @close="isOpen = false">
+    <articleModal v-if="isOpen" :data="activities" :id="modalId" @close="closeModal">
       <template #category>最新活動 </template>
       <template #more-title>更多活動</template>
     </articleModal>
@@ -87,7 +87,15 @@ import { ref } from 'vue'
 import articleModal from '@/components/articleModal.vue'
 const isOpen = ref(false)
 const modalId = ref(null)
-
+const body = document.body
+function openModal() {
+  isOpen.value = true
+  body.style.overflow = 'hidden'
+}
+function closeModal() {
+  isOpen.value = false
+  body.style.overflow = 'auto'
+}
 import { onMounted, onUnmounted } from 'vue'
 import { gsap } from 'gsap'
 let tl
@@ -95,7 +103,7 @@ onMounted(() => {
   tl = gsap.timeline({
     scrollTrigger: {
       trigger: '.activity-container',
-      start: 'top 40%',
+      start: 'top 40%'
     }
   })
   tl.to('.activity-label', { opacity: 1, duration: 0.5 })
@@ -103,7 +111,7 @@ onMounted(() => {
   tl.to('.activity-list', { opacity: 1, duration: 0.5 })
 })
 onUnmounted(() => {
-  tl.revert() // <- Easy Cleanup!
+  tl.revert() 
 })
 </script>
 

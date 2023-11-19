@@ -4,7 +4,7 @@
       <div class="donate-title">小額支持喵喵</div>
       <div class="donate-subtitle">您的小筆捐款，是每隻毛孩未來的大大動力！</div>
       <div class="button-wrapper">
-        <div class="donate-button" @click="isDonateModalOpen = true">
+        <div class="donate-button" @click="donateModalToggle(true, 'hidden')">
           小額捐款
           <img src="@/assets/icon/arrow_forward.svg" alt="arrow icon" />
         </div>
@@ -15,7 +15,7 @@
       <div class="donate-title">民眾服務信箱</div>
       <div class="donate-subtitle">親愛的鄉親，每一位市民的意見都是我們社區前進的原動力</div>
       <div class="button-wrapper">
-        <div class="donate-button" @click="isEmailModalOpen = true">
+        <div class="donate-button" @click="emailModalToggle(true, 'hidden')">
           填寫表單
           <img src="@/assets/icon/arrow_forward.svg" alt="arrow icon" />
         </div>
@@ -24,8 +24,8 @@
     </section>
   </div>
   <teleport to="body">
-    <donateModal v-if="isDonateModalOpen" @close="isDonateModalOpen = false"> </donateModal>
-    <emailModal v-if="isEmailModalOpen" @close="isEmailModalOpen = false">
+    <donateModal v-if="isDonateModalOpen" @close="donateModalToggle(false, 'auto')"> </donateModal>
+    <emailModal v-if="isEmailModalOpen" @close="emailModalToggle(false, 'auto')">
       <template #category>民眾服務信箱</template>
       <template #body>捐款方案</template>
     </emailModal>
@@ -38,6 +38,17 @@ import donateModal from '@/components/donateModal.vue'
 import emailModal from '@/components/emailModal.vue'
 const isDonateModalOpen = ref(false)
 const isEmailModalOpen = ref(false)
+const body = document.body
+//toggle true | fasle
+//overflow 'hidden' | 'auto'
+function donateModalToggle(toggle, overflow) {
+  isDonateModalOpen.value = toggle
+  body.style.overflow = overflow
+}
+function emailModalToggle(toggle, overflow) {
+  isEmailModalOpen.value = toggle
+  body.style.overflow = overflow
+}
 import { onMounted, onUnmounted } from 'vue'
 import { gsap } from 'gsap'
 let tl
