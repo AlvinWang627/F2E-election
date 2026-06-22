@@ -5,7 +5,7 @@
 
     <div class="activity-list">
       <div
-        v-for="(activity, index) in activities.slice(0, 1)"
+        v-for="activity in activities.slice(0, 1)"
         :key="activity.id"
         class="big-card"
         @click="(modalId = activity.id), openModal()"
@@ -17,7 +17,7 @@
       </div>
       <div class="small-card-group">
         <div
-          v-for="(activity, index) in activities.slice(1, 4)"
+          v-for="activity in activities.slice(1, 4)"
           :key="activity.id"
           class="small-card"
           @click="(modalId = activity.id), openModal()"

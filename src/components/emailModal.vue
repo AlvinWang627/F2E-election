@@ -67,7 +67,6 @@ import { ref } from 'vue'
 defineEmits(['close'])
 const refScroll = ref(null)
 const submitSuccess = ref(false)
-const radio = ref(1)
 function submitHandler() {
   submitSuccess.value = true
 }

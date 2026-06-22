@@ -24,7 +24,17 @@ export default defineConfig({
   css: {
     preprocessorOptions: {
       scss: {
-        additionalData: '@import "@/style/variable.scss";'
+        additionalData: '@use "@/style/variable.scss" as *;'
+      }
+    }
+  },
+  build: {
+    rollupOptions: {
+      // Silence Rolldown's INVALID_ANNOTATION warnings caused by misplaced
+      // /* #__PURE__ */ comments in dependencies (e.g. @vueuse/core via element-plus).
+      onLog(level, log, handler) {
+        if (log.code === 'INVALID_ANNOTATION') return
+        handler(level, log)
       }
     }
   }
